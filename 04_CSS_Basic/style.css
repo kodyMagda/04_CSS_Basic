@@ -1,0 +1,138 @@
+/* 
+Uwagi wstępne:
+1. Pamiętaj o literówkach!!!!
+2. Uporządkowałam trochę kod; grupa 2 zrobiła odrobinkę więcej niż grupa 1, więc oddzielono to GRUBĄ LINIĄ
+*/
+/* Typy selektorów: tag, klasa i id.
+W hierarchii powszechności: tag > klasa > id
+W hierarchii ważności: id > klasa > tag
+
+UWAGA! 
+1. Id unikalne może mieć tylko jeden element
+2. Klasę taką samą może mieć wiele elementów
+*/
+body{
+	/*usuwamy domyślny margin z body*/
+	margin: 0;
+}
+#czerwony{
+	background-color: red;
+}
+.zielony{
+	background-color: green;
+}
+/*stylizacja elementów listy wg ich klasy i id*/
+.niebieski{
+	background-color: blue;
+}
+#brazowy{
+	/*Kaskadowe czytanie kodu - element poniżej jest ważniejszy niż ten powyżej*/
+	background-color: brown;
+	background-color: orange;
+}
+
+/*kolory w CSS (i HTML i kodzie w ogóle)*/
+#pomaranczowy{
+	/*Red green blue, skala od 0 do 255*/
+	background-color: rgb(230,170,70);
+	/*Skala hexadecymalna - w skrócie hex */
+	background-color: #efae48;
+	/*Bonus: transparencja, kanał alfa - ostatni element to procent przeźroczystości w ułamku, tutaj 40%*/
+	background-color: rgba(230,170,70,0.4);
+
+}
+/*Przypomnienie: element o id o jakiejś konkretnej nazwie jest zupełnie różny od elementów o klasie o jakiejś konkretnej nazwie*/
+#niebieski{
+	background-color: #ffffff;
+	/*Szerokość jest relatywna względem najbliższego rodzica o ustalonej szerokości – w naszym przypadku jest nim każdy z rodziców, bo żaden nie ma ustalonej szerokości. Wtedy tą szerokością-odniesieniem jest szerokość okna przeglądarki*/
+	width: 60%;
+	/*Padding % - procent >>szerokości<< elementu*/
+	padding: 2%;
+	/*Znacznik "padding" opisuje w skrócie wszystkie brzegi elementu; można wyróżnić też każdy (albo jeden) z nich z osobna, jak poniżej*/
+	padding-left: 15%;
+	/*Style ramki - można je opisywać po kolei, ale lepiej użyć skrótu "border"*/
+	border-width: 15px;
+	border-color: black;
+	border-style: solid;
+	border: 5px dotted red;
+	/*Margin auto środkuje nam element horyzontalnie. Wertykalnie warto nadać inny margin*/
+	margin: auto;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	/*Aby utworzyć skrót do takiej operacji, warto pamiętać, że właściwości dla obramowań, marginesów i paddingów są czytane od góry, zgodnie z ruchem wskazówek zegara: top > right > bottom > left;*/
+	/*margin: top right bottom left*/
+	margin: 20px auto 20px auto;
+	/*margin: top&bottom right&left*/
+	margin: 70px auto;
+}
+p{
+	/*Wiele nazw fontów pozwala przeglądarce zapobiec pojawieniu się domyślnego fontu w przypadku błędu*/
+	font-family: Tahoma, Geneva, sans-serif;
+	/*Rozmiar fontu może być też w pikselach, procentach oraz innych*/
+	font-size: 16pt;
+	/*Warto stosować tylko takie grubości, jakie zostały zaprojektowane przez projektanta kroju (zazwyczaj jest to napisane)*/
+	font-weight: 700;
+	/*Boldy i italiki to tutaj:*/
+	font-style: italic;
+	/*Ale my i tak będziemy ładować zaprojektowane odmiany prędzej*/
+
+	/*Przepływ tekstu. Justowanie w przeglądarce NIE DZIAŁA. Tzn. jest możliwe, ale nie ma nad nim kontroli. Nasze opcje to right, left, center*/
+	text-align: center;
+}
+p#drugi{
+	/*Dla tego konkretnego p o id zostanie nadpisana tylko jedna linijka, font-family. Reszta będzie taka sama jak w ogólnej deklaracji*/
+	font-family: "Courier New", Courier, monospace;
+}
+a{
+	/*kolor tekstu:*/
+	color: rgb(255,255,255);
+	/*Pozbawienie linku dekoracji*/
+	text-decoration: none;
+}
+/*///////////////////////////////////
+Materiał z grupy 2
+///////////////////////////////////*/
+
+/*Obrazek jako tło. */
+#rozowy{
+	/*Musimy dać mu jakieś wymiary*/
+	width: 100%;
+	/*Wysokość jest relatywna względem kontentu, więc lepiej ustawmy ją na "sztywno"*/
+	height: 200px;
+	/*Pamiętaj o poprawnie wprowadzonej ścieżce do obrazka! Przypomnij sobie ścieżki z zajęć o HTML (#kodowanie03)*/
+	background-image: url('dziecielina.jpg');
+	/*Zapobiegamy powielaniu się obrazu*/
+	background-repeat: no-repeat;
+	/*Rozciągamy go na 100% szerokości pojemnika*/
+	background-size: 100%;
+	/*Dajemy jego pozycję na bottom, ponieważ chcemy, by ucinała się góra, a nie dół*/
+	background-position: bottom;
+}
+/*W ten sposób będziemy stylizować h1 tylko żyjące w pojemniku  #rozowy*/
+#rozowy h1{
+	/*Usuwamy bold*/
+	font-weight: normal;
+	font-size: 400%;
+	margin: 12px auto;
+}
+li{
+	background-color: yellow;
+	/*Display inline block umożliwia nam ustawienia się elementów obok siebie jak liniowych, ale jednocześnie mamy możliwość dawać im wysokość i szerokość*/
+	display: inline-block;
+	width: 20%;
+	height: 50px;
+	text-align: center;
+	/*Środkowanie wertykalnie NIE DZIAŁA. Będziemy mieli na to tricki ;)*/
+	padding-top: 10px;
+	padding-bottom: -10px;
+}
+a:hover{
+	color: #000000;
+}
+a:visited{
+	color: red;
+}
+ul{
+	list-style-type: none;
+}
+
